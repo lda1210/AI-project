@@ -15,8 +15,7 @@ jobs:
 
       - name: Set up LaTeX
         run: |
-          apt-get update
-          apt-get install texlive-full
+          choco install miktex.portable  # Install MikTeX via Chocolatey
 
       - name: Compile LaTeX
         run: |
