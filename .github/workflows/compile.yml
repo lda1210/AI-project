@@ -15,7 +15,7 @@ jobs:
 
       - name: Set up LaTeX
         run: |
-          choco install miktex.portable  # Install MikTeX via Chocolatey
+          choco install miktex.portable --source="'https://miktex.org/download/win'"  # Install MikTeX via Chocolatey
 
       - name: Compile LaTeX
         run: |
