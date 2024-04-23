@@ -1,0 +1,32 @@
+name: Compile LaTeX
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install texlive-full
+
+      - name: Compile LaTeX
+        run: |
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+
+      - name: Rename PDF
+        run: mv main.pdf Report.pdf
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: compiled-report
+          path: Report.pdf
