@@ -13,10 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up LaTeX
-        run: |
-          choco install miktex.portable --source="'https://miktex.org/download/win'"  # Install MikTeX via Chocolatey
-
       - name: Compile LaTeX
         run: |
           pdflatex -interaction=nonstopmode -halt-on-error "IntroIT Project Report.tex"
